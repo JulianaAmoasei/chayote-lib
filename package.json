@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/JulianaAmoasei/biblioteca.git"
+    "url": "git+ssh://git@github.com/julianaamoasei/chayote-lib.git"
   },
   "keywords": [
     "xuxu"
@@ -22,7 +22,7 @@
   "author": "Juliana Amoasei",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JulianaAmoasei/biblioteca/issues"
+    "url": "https://github.com/julianaamoasei/chayote-lib/issues"
   },
-  "homepage": "https://github.com/JulianaAmoasei/biblioteca#readme"
+  "homepage": "https://github.com/julianaamoasei/chayote-lib#readme"
 }
