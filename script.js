@@ -1,21 +1,21 @@
 $(window).on("load", function() {
-  $("#btn-numero").on("click", function(event) {
+  $("#btn-number").on("click", function(event) {
     event.preventDefault();
-    pegaNumero();
-    insereExtenso();
+    getNumber();
+    printsWritten();
   });
 });
 
-function pegaNumero(){
-  $(".div-resposta").remove();
-  return campoNumero = $("#campo-numero").val();
+function getNumber(){
+  $(".div-result").remove();
+  return fieldNumber = $("#field-number").val();
 }
 
-function insereExtenso(){
-  $(".retorno-extenso").append(`
-      <div class="div-resposta">
+function printsWritten(){
+  $(".return-written").append(`
+      <div class="div-result">
         <p>o número por extenso é</p>
-        <p>${ retornaExtenso(campoNumero) }</p>
+        <p>${ returnsWritten(fieldNumber) }</p>
       </div>
       `);
 }

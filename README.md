@@ -25,9 +25,9 @@ Veja um exemplo no [github-pages](https://JulianaAmoasei.github.io/biblioteca).
 
 ##versão 1.0.0
 
-- funcionalidades: conversão de números de 0 a 999999999.
+- funcionalidades: conversão de números de 0 a 999999999;
 - conversão para texto em português brasileiro, com letras minúsculas;
-
+- README translated to english.
 
 ##instalação
 

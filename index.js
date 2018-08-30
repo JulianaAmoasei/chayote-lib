@@ -1,4 +1,4 @@
-const centenas = {
+const hundreds = {
   0: "",
   1: "cento",
   2: "duzentos",
@@ -11,7 +11,7 @@ const centenas = {
   9: "novecentos",
 };
 
-const unidades = {
+const unitaries = {
   0: "",
   1: "um",
   2: "dois",
@@ -24,7 +24,7 @@ const unidades = {
   9: "nove"
 };
 
-const dezenas = {
+const dozens = {
   0: "",
   1: "dez",
   2: "vinte",
@@ -37,7 +37,7 @@ const dezenas = {
   9: "noventa",
 };
 
-const onzeDezenove = {
+const elevenToNineteen = {
   0: "",
   11: "onze",
   12: "doze",
@@ -50,20 +50,20 @@ const onzeDezenove = {
   19: "dezenove",
 };
 
-function retornaExtenso(num){
+function returnsWritten(num){
   if (num === 0){
     return "zero";
   }
-  return retornaMilhao(num) + retornaMilhar(num) + retornaCentenaInteira(num);
+  return returnsMillion(num) + returnsMillions(num) + returnsFullHundred(num);
 }
 
-function retornaCentenaInteira(num){
-  return retornaCentenas(num) + retornaDezenas(num);
+function returnsFullHundred(num){
+  return returnsHundreds(num) + returnsDozens(num);
 }
 
-function retornaCentenas(num){
-  let centena = parseInt(num % 1000 / 100);
-  let dezena = num % 100;
+function returnsHundreds(num){
+  let hundred = parseInt(num % 1000 / 100);
+  let dozen = num % 100;
 
   if ((num % 1000) === 0) {
     return "";
@@ -72,59 +72,59 @@ function retornaCentenas(num){
   if (((num % 100) === 0) && (num > 1000)) {
     preNum = "e ";
   }
-  if ((num % 100) === 0 && centena === 1){
+  if ((num % 100) === 0 && hundred === 1){
     return preNum + "cem";
   }
-  let complemento = " e ";
-  if ((dezena === 0) || (num < 100)){
-    complemento = "";
+  let betweenNumbers = " e ";
+  if ((dozen === 0) || (num < 100)){
+    betweenNumbers = "";
   }
-  return preNum + centenas[centena] + complemento;
+  return preNum + hundreds[hundred] + betweenNumbers;
 }
 
-function retornaMilhar(num){
+function returnsMillions(num){
   if (num === 1000){
     return "um mil";
   }
   if ((num >= 1000) && (num % 1000000 > 1000)){
-    let complemento = "";
+    let betweenNumbers = "";
     if (num % 1000 !== 0){
-      complemento = " ";
+      betweenNumbers = " ";
     }
-    return retornaCentenaInteira(parseInt(num / 1000)) + " mil" + complemento;
+    return returnsFullHundred(parseInt(num / 1000)) + " mil" + betweenNumbers;
   } else {
     return "";
   }
 }
 
-function retornaMilhao(num){
+function returnsMillion(num){
   if (num >= 1000000 && num < 2000000){
-    return retornaCentenaInteira(parseInt(num / 1000000)) + " milhão ";
+    return returnsFullHundred(parseInt(num / 1000000)) + " milhão ";
   } 
   else if (num >= 2000000){
-    return retornaCentenaInteira(parseInt(num / 1000000)) + " milhões ";
+    return returnsFullHundred(parseInt(num / 1000000)) + " milhões ";
   } else {
     return "";
   }  
 }
 
-function retornaDezenas(num){
-  let numero = num % 100;
-  let unidade = numero % 10;
-  let dezena = parseInt(numero % 100 / 10);
+function returnsDozens(num){
+  let number = num % 100;
+  let unitary = number % 10;
+  let dozen = parseInt(number % 100 / 10);
 
-  if (numero >= 1 && numero <= 9){
-    return unidades[numero];
+  if (number >= 1 && number <= 9){
+    return unitaries[number];
   }
 
-  if (numero >= 11 && numero <= 19){
-    return onzeDezenove[numero];
+  if (number >= 11 && number <= 19){
+    return elevenToNineteen[number];
   } 
-  let complemento = " e ";
-  if (unidade === 0){
-    complemento = "";
+  let betweenNumbers = " e ";
+  if (unitary === 0){
+    betweenNumbers = "";
   }
-  return dezenas[dezena] + complemento + unidades[unidade];  
+  return dozens[dozen] + betweenNumbers + unitaries[unitary];  
 }
 
-module.exports = retornaExtenso;
+module.exports = returnsWritten;
