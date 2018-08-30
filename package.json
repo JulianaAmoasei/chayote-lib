@@ -1,0 +1,28 @@
+{
+  "name": "chayote-lib",
+  "version": "1.0.0",
+  "description": "convert numbers to words (in portuguese)",
+  "main": "index.js",
+  "dependencies": {
+    "mocha": "^5.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.4.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/JulianaAmoasei/biblioteca.git"
+  },
+  "keywords": [
+    "xuxu"
+  ],
+  "author": "Juliana Amoasei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JulianaAmoasei/biblioteca/issues"
+  },
+  "homepage": "https://github.com/JulianaAmoasei/biblioteca#readme"
+}
