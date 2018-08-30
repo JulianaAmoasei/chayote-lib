@@ -10,7 +10,7 @@
     "eslint": "^5.4.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
   },
   "repository": {
     "type": "git",

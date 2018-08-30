@@ -1,5 +1,5 @@
 const assert = require('assert');
-const returnsWritten = require('./index');
+const returnsWritten = require('../index');
 
 describe('returnsWritten()', function() {
   it('deve retornar por extenso', () => {
