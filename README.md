@@ -12,8 +12,8 @@ Exemplo de uso:
 
 ```
 $node
-> let convert = convertToWritten("./index")
-> convertToWritten(1); //'um'
+> let convert = require("chayote-lib")
+> convert(1); //'um'
 ```
 
 
