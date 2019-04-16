@@ -84,7 +84,7 @@ function millions(num) {
   }
 
   if (num >= 1000 && num % 1000000 > 1000) {
-    const betweenNumbers = num % 1000 !== 0 ? " " : "";
+    const betweenNumbers = num % 1000 > 100 ? " " : "";
     return fullHundred(parseInt(num / 1000)) + " mil" + betweenNumbers;
   } else {
     return "";
