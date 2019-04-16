@@ -1,4 +1,4 @@
-const hundreds = {
+const writtenHundreds = {
   0: "",
   1: "cento",
   2: "duzentos",
@@ -8,10 +8,10 @@ const hundreds = {
   6: "seiscentos",
   7: "setecentos",
   8: "oitocentos",
-  9: "novecentos",
+  9: "novecentos"
 };
 
-const unitaries = {
+const writtenUnitaries = {
   0: "",
   1: "um",
   2: "dois",
@@ -24,7 +24,7 @@ const unitaries = {
   9: "nove"
 };
 
-const dozens = {
+const writtenDozens = {
   0: "",
   1: "dez",
   2: "vinte",
@@ -34,7 +34,7 @@ const dozens = {
   6: "sessenta",
   7: "setenta",
   8: "oitenta",
-  9: "noventa",
+  9: "noventa"
 };
 
 const elevenToNineteen = {
@@ -47,84 +47,77 @@ const elevenToNineteen = {
   16: "dezesseis",
   17: "dezessete",
   18: "dezoito",
-  19: "dezenove",
+  19: "dezenove"
 };
 
-function returnsWritten(num){
-  if (num === 0){
+function writtenNumber(num) {
+  if (num === 0) {
     return "zero";
   }
-  return returnsMillion(num) + returnsMillions(num) + returnsFullHundred(num);
+  return million(num) + millions(num) + fullHundred(num);
 }
 
-function returnsFullHundred(num){
-  return returnsHundreds(num) + returnsDozens(num);
+function fullHundred(num) {
+  return hundreds(num) + dozens(num);
 }
 
-function returnsHundreds(num){
-  let hundred = parseInt(num % 1000 / 100);
-  let dozen = num % 100;
+function hundreds(num) {
+  const hundred = parseInt((num % 1000) / 100);
+  const dozen = num % 100;
 
-  if ((num % 1000) === 0) {
+  if (num % 1000 === 0) {
     return "";
   }
-  let preNum = "";
-  if (((num % 100) === 0) && (num > 1000)) {
-    preNum = "e ";
+
+  const previousCombination = dozen === 0 && num > 1000 ? "e " : "";
+  if (dozen === 0 && hundred === 1) {
+    return previousCombination + "cem";
   }
-  if ((num % 100) === 0 && hundred === 1){
-    return preNum + "cem";
-  }
-  let betweenNumbers = " e ";
-  if ((dozen === 0) || (num < 100)){
-    betweenNumbers = "";
-  }
-  return preNum + hundreds[hundred] + betweenNumbers;
+
+  const betweenNumbers = dozen === 0 || num < 100 ? "" : " e ";
+  return previousCombination + writtenHundreds[hundred] + betweenNumbers;
 }
 
-function returnsMillions(num){
-  if (num === 1000){
+function millions(num) {
+  if (num === 1000) {
     return "um mil";
   }
-  if ((num >= 1000) && (num % 1000000 > 1000)){
-    let betweenNumbers = "";
-    if (num % 1000 !== 0){
-      betweenNumbers = " ";
-    }
-    return returnsFullHundred(parseInt(num / 1000)) + " mil" + betweenNumbers;
+
+  if (num >= 1000 && num % 1000000 > 1000) {
+    const betweenNumbers = num % 1000 !== 0 ? " " : "";
+    return fullHundred(parseInt(num / 1000)) + " mil" + betweenNumbers;
   } else {
     return "";
   }
 }
 
-function returnsMillion(num){
-  if (num >= 1000000 && num < 2000000){
-    return returnsFullHundred(parseInt(num / 1000000)) + " milhão ";
-  } 
-  else if (num >= 2000000){
-    return returnsFullHundred(parseInt(num / 1000000)) + " milhões ";
+function million(num) {
+  const millionValue = parseInt(num / 1000000);
+
+  if (num >= 1000000 && num < 2000000) {
+    return fullHundred(millionValue) + " milhão ";
+  } else if (num >= 2000000) {
+    return fullHundred(millionValue) + " milhões ";
   } else {
     return "";
-  }  
+  }
 }
 
-function returnsDozens(num){
-  let number = num % 100;
-  let unitary = number % 10;
-  let dozen = parseInt(number % 100 / 10);
+function dozens(num) {
+  const number = num % 100;
+  const unitary = number % 10;
+  const dozen = parseInt((number % 100) / 10);
 
-  if (number >= 1 && number <= 9){
-    return unitaries[number];
+  if (number >= 1 && number <= 9) {
+    return writtenUnitaries[number];
   }
 
-  if (number >= 11 && number <= 19){
+  if (number >= 11 && number <= 19) {
     return elevenToNineteen[number];
-  } 
-  let betweenNumbers = " e ";
-  if (unitary === 0){
-    betweenNumbers = "";
   }
-  return dozens[dozen] + betweenNumbers + unitaries[unitary];  
+
+  const betweenNumbers = unitary !== 0 ? " e " : "";
+  return writtenDozens[dozen] + betweenNumbers + writtenUnitaries[unitary];
 }
 
-module.exports = returnsWritten;
+module.exports = writtenNumber;
