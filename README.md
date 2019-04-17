@@ -15,7 +15,7 @@ $node
 > let convert = require("chayote-lib")
 > convert(1); //'um'
 ```
-
+banana
 
 ## versão 1.0.0
 
