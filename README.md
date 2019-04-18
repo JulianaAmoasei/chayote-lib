@@ -36,5 +36,3 @@ $  npm install chayote-lib
 #### versão 1.0.0 (released)
 - funcionalidades: conversão de números de 0 a 999999999.
 - conversão para texto em português brasileiro, com letras minúsculas.
-
-
