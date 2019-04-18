@@ -3,31 +3,23 @@
 **Esta biblioteca se destina à conversão de números em extenso, para uso em aplicações web.**
 Na versão atual é capaz de converter números de 0 a 999999999 para seus equivalentes em extenso, com letras minúsculas.
 
+## Como instalar:
 
-## Os métodos utilizados na biblioteca são:
+```shell
 
-#### **returnsWritten(num);**
-
-Exemplo de uso:
+$  npm install chayote-lib
 
 ```
-$node
-> let convert = require("chayote-lib")
-> convert(1); //'um'
+
+## Como utilizar:
+
+```node
+
+> const writtenNumber = require("chayote-lib");
+> console.log(writtenNumber(1012))
+> // returns "um mil e doze"
+
 ```
-
-
-## versão 1.0.0
-
-- funcionalidades: conversão de números de 0 a 999999999;
-- conversão para texto em português brasileiro, com letras minúsculas.
-
-
-## instalação
-
-- você deverá ter o node + npm instalados. Para guia de instalação, visite [o site oficial](https://www.npmjs.com/get-npm).
-- proceda com a instalação com `$npm install chayote-lib`
-
 
 ## roadmap oficial do projeto
 

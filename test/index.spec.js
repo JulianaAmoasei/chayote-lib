@@ -1,7 +1,9 @@
-const assert = require('assert');
+/*eslint-disable */
+
+const assert = require('chai').assert;
 const returnsWritten = require('../index');
 
-describe('returnsWritten()', function() {
+describe('returnsWritten()', () => {
   it('deve retornar por extenso', () => {
     assert.equal(returnsWritten(0), 'zero');
   });
@@ -58,7 +60,7 @@ describe('returnsWritten()', function() {
   });
   it('deve retornar por extenso', () => {
     assert.equal(returnsWritten(210), 'duzentos e dez');
-  });});
+  });
   it('deve retornar por extenso', () => {
     assert.equal(returnsWritten(217), 'duzentos e dezessete');
   });
@@ -122,4 +124,4 @@ describe('returnsWritten()', function() {
   it('deve retornar por extenso', () => {
     assert.equal(returnsWritten(999999999), 'novecentos e noventa e nove milhões novecentos e noventa e nove mil novecentos e noventa e nove');
   });
-
+});
