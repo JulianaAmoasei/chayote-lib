@@ -1,4 +1,4 @@
-# Conversor de números v.1.0.0
+# Conversor de números v.1.0.2
 
 **Esta biblioteca se destina à conversão de números em extenso, para uso em aplicações web.**
 Na versão atual é capaz de converter números de 0 a 999999999 para seus equivalentes em extenso, com letras minúsculas.
@@ -16,8 +16,8 @@ $  npm install chayote-lib
 ```node
 
 > const writtenNumber = require("chayote-lib");
-> console.log(writtenNumber(1012))
-> // returns "um mil e doze"
+> console.log(writtenNumber(10))
+> // returns "dez"
 
 ```
 
